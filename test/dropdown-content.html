@@ -14,7 +14,7 @@
 
 		<test-fixture id="Dropdown">
 			<template>
-				<div>
+				<div id="optionallyFocusable">
 					<d2l-dropdown>
 						<button class="d2l-dropdown-opener"></button>
 						<d2l-dropdown-content>
@@ -203,6 +203,23 @@
 						// which causes focus to be lost and activeElement to become
 						// document.body
 						document.body.focus();
+						setTimeout(function() {
+							expect(content.opened).to.be.true;
+							done();
+						}, 100);
+					});
+					content.setAttribute('opened', true);
+				});
+
+				it('should not close when activeElement becomes focusable ancestor', function(done) {
+					var focusableAncestor = dropdownFixture.querySelector('#optionallyFocusable');
+					focusableAncestor.setAttribute('tabindex', '-1');
+
+					content.addEventListener('d2l-dropdown-open', function() {
+						// this simulates a click on an element inside the dropdown,
+						// which causes focus to be lost and activeElement to become
+						// the focusable ancestor of the dropdown
+						focusableAncestor.focus();
 						setTimeout(function() {
 							expect(content.opened).to.be.true;
 							done();

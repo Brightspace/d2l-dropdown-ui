@@ -217,6 +217,8 @@
 
 		__isRTL: false,
 
+		__previousFocusableAncestor: null,
+
 		ready: function() {
 			this.__onResize = this.__onResize.bind(this);
 			this.__onAutoCloseFocus = this.__onAutoCloseFocus.bind(this);
@@ -296,7 +298,8 @@
 				if (!this.opened
 					|| this.noAutoClose
 					|| !document.activeElement
-					|| document.activeElement === document.body) {
+					|| document.activeElement === this.__previousFocusableAncestor
+					|| document.body) {
 					return;
 				}
 
@@ -356,6 +359,11 @@
 		},
 
 		__openedChanged: function(newValue) {
+
+			this.__previousFocusableAncestor =
+				newValue === true
+					? D2L.Dom.Focus.getPreviousFocusableAncestor(this, false, false)
+					: null;
 
 			this.__isRTL = (getComputedStyle(this).direction === 'rtl');
 
