@@ -299,7 +299,7 @@
 					|| this.noAutoClose
 					|| !document.activeElement
 					|| document.activeElement === this.__previousFocusableAncestor
-					|| document.body) {
+					|| document.activeElement === document.body) {
 					return;
 				}
 
