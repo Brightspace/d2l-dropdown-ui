@@ -40,8 +40,7 @@
 					return;
 				}
 				opener.setAttribute('aria-haspopup', true);
-				this.listen(opener, 'keypress', '__onKeyPress');
-				this.listen(opener, 'mouseup', '__onMouseUp');
+				this.listen(opener, 'click', '__onClick');
 			}.bind(this));
 		},
 
@@ -50,8 +49,7 @@
 			if (!opener) {
 				return;
 			}
-			this.unlisten(opener, 'keypress', '__onKeyPress');
-			this.unlisten(opener, 'mouseup', '__onMouseUp');
+			this.unlisten(opener, 'click', '__onClick');
 		},
 
 		getOpener: function() {
@@ -70,21 +68,11 @@
 			content.toggleOpen(applyFocus);
 		},
 
-		__onKeyPress: function(e) {
-			if (e.keyCode !== 13) {
-				return;
-			}
+		__onClick: function() {
 			if (this.noAutoOpen) {
 				return;
 			}
 			this.toggleOpen(true);
-		},
-
-		__onMouseUp: function() {
-			if (this.noAutoOpen) {
-				return;
-			}
-			this.toggleOpen(false);
 		}
 
 	};
