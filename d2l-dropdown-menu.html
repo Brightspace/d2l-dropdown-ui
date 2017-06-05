@@ -81,10 +81,10 @@
 			},
 
 			_onSelect: function(e) {
-				if (e.target.tagName !== 'D2L-MENU-ITEM') {
-					return;
+				// Applies to d2l-menu-item, d2l-menu-item-radio, and d2l-menu-item-checkbox
+				if (e.target.tagName.indexOf('D2L-MENU-ITEM') === 0) {
+					this.close();
 				}
-				this.close();
 			}
 
 		});
