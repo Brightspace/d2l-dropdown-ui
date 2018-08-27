@@ -634,15 +634,15 @@
 					maxHeight = Math.floor(spaceAround.below);
 				}
 
-				if ((this.align === 'start' && !this.__isRTL) || (this.align === 'end' && this.__isRTL)) {
-					spaceAround.left = 0;
-				} else if ((this.align === 'start' && this.__isRTL) || (this.align === 'end' && !this.__isRTL)) {
-					spaceAround.right = 0;
-				}
-
 				var centerDelta = contentRect.width - targetRect.width;
 				var contentXAdjustment = centerDelta / 2;
 				if (centerDelta > 0) {
+					if ((this.align === 'start' && !this.__isRTL) || (this.align === 'end' && this.__isRTL)) {
+						spaceAround.left = 0;
+					} else if ((this.align === 'start' && this.__isRTL) || (this.align === 'end' && !this.__isRTL)) {
+						spaceAround.right = 0;
+					}
+
 					// content wider than target, so slide left/right as needed
 					if (!this.__isRTL) {
 						if (spaceAround.left > contentXAdjustment && spaceAround.right > contentXAdjustment) {
@@ -670,9 +670,21 @@
 				} else {
 					// content narrower than target, so slide in
 					if (!this.__isRTL) {
-						position.style.left = (contentXAdjustment * -1) + 'px';
+						if (this.align === 'start') {
+							position.style.left = 0;
+						} else if (this.align === 'end') {
+							position.style.right = 0;
+						} else {
+							position.style.left = (contentXAdjustment * -1) + 'px';
+						}
 					} else {
-						position.style.right = (contentXAdjustment * -1) + 'px';
+						if (this.align === 'start') {
+							position.style.right = 0;
+						} else if (this.align === 'end') {
+							position.style.left = 0;
+						} else {
+							position.style.right = (contentXAdjustment * -1) + 'px';
+						}
 					}
 				}
 
