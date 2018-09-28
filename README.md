@@ -1,6 +1,8 @@
 **Looking for SASS-based `vui-dropdown`?** It's [over here](https://github.com/Brightspace/valence-ui-dropdown/tree/sass).
 
 # d2l-dropdown
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/BrightspaceUIdropdown)
+[![Stars on Vaadin Directory](https://img.shields.io/vaadin-directory/star/BrightspaceUIdropdown.svg)](https://vaadin.com/directory/component/BrightspaceUIdropdown)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/dropdown)
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
