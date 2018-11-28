@@ -6,7 +6,7 @@
   },
   "name": "d2l-dropdown",
   "scripts": {
-    "lint:js": "eslint *.html demo/*.html test/*.html",
+    "lint:js": "eslint . --ext .js,.html test/**/*.js test/**/*.html demo/**/*.js demo/**/*.html",
     "lint:wc": "polymer lint",
     "lint": "npm run lint:wc && npm run lint:js",
     "test": "npm run lint && npm run test:polymer:local",
