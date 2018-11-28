@@ -1,15 +1,22 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="d2l-dropdown-content-behavior.html">
-
-<!--
+/**
 `d2l-dropdown-content`
 Polymer-based web component for dropdown generic content.
 
 @demo demo/dropdown.html Generic Content
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '../@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="d2l-dropdown-content">
-	<template strip-whitespace>
+import './d2l-dropdown-content-behavior.js';
+import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content">
+	<template strip-whitespace="">
 		<style include="d2l-dropdown-content-styles">
 			/*
 			 * https://github.com/Polymer/tools/issues/408
@@ -32,14 +39,15 @@ Polymer-based web component for dropdown generic content.
 			<div></div>
 		</div>
 	</template>
-	<script>
-		Polymer({
-			is: 'd2l-dropdown-content',
+	
+</dom-module>`;
 
-			behaviors: [
-				D2L.PolymerBehaviors.DropdownContentBehavior
-			]
+document.head.appendChild($_documentContainer.content);
+Polymer({
+	is: 'd2l-dropdown-content',
 
-		});
-	</script>
-</dom-module>
+	behaviors: [
+		D2L.PolymerBehaviors.DropdownContentBehavior
+	]
+
+});
