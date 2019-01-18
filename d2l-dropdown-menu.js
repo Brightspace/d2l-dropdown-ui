@@ -78,7 +78,7 @@ Polymer({
 	},
 
 	_onMenuResize: function(e) {
-		this.__position(!this._initializingHeight, e.details);
+		this.__position(!this._initializingHeight, e.detail);
 		this._initializingHeight = false;
 	},
 
