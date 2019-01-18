@@ -571,7 +571,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 	},
 
-	__position: function(ignoreVertical) {
+	__position: function(ignoreVertical, contentSize) {
 
 		var opener = this.__getOpener();
 		if (!opener) {
@@ -593,7 +593,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 		var adjustPosition = function() {
 
 			var targetRect = target.getBoundingClientRect();
-			var contentRect = content.getBoundingClientRect();
+			var contentRect = contentSize ? contentSize : content.getBoundingClientRect();
 
 			var spaceAround = {
 				above: targetRect.top - 50,
