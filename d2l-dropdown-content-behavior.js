@@ -571,7 +571,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 	},
 
-	__position: function(ignoreVertical) {
+	__position: function(ignoreVertical, contentRect) {
 
 		var opener = this.__getOpener();
 		if (!opener) {
@@ -593,7 +593,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 		var adjustPosition = function() {
 
 			var targetRect = target.getBoundingClientRect();
-			var contentRect = content.getBoundingClientRect();
+			contentRect = contentRect ? contentRect : content.getBoundingClientRect();
 
 			var spaceAround = {
 				above: targetRect.top - 50,
@@ -680,7 +680,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 			if (!this.noAutoFit && maxHeight && maxHeight > 0) {
 				content.style.maxHeight = maxHeight + 'px';
-				this.__toggleOverflowY();
+				this.__toggleOverflowY(contentRect.height > maxHeight);
 			}
 
 			this.fire('d2l-dropdown-position');
@@ -704,7 +704,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 	},
 
-	__toggleOverflowY: function() {
+	__toggleOverflowY: function(isOverflowing) {
 		if (!this.__content || !this.__content.style || !this.__content.style.maxHeight) {
 			return;
 		}
@@ -714,7 +714,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			return;
 		}
 
-		if (this.__content.scrollHeight > maxHeight) {
+		if (isOverflowing || this.__content.scrollHeight > maxHeight) {
 			this.__content.style.overflowY = 'auto';
 		} else {
 			/* needed for IE */
