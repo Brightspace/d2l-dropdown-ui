@@ -1,7 +1,6 @@
 import '@polymer/polymer/polymer-legacy.js';
 import './d2l-dropdown-content-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
-import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-tabs">
@@ -45,7 +44,7 @@ Polymer({
 		'd2l-tab-panel-selected': '_onTabSelected'
 	},
 
-	_onMenuResize: function(e) {
+	_onMenuResize: function() {
 		requestAnimationFrame(function() {
 			this.__position(false);
 		}.bind(this));
@@ -60,7 +59,6 @@ Polymer({
 	},
 
 	_onTabSelected: function() {
-		var tabs = this.queryEffectiveChildren('[role="tablist"]');
 		requestAnimationFrame(function() {
 			this.__position(false);
 		}.bind(this));
