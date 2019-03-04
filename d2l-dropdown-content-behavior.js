@@ -721,7 +721,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			this.__content.style.overflowY = 'auto';
 		} else {
 			/* needed for IE */
-			this.__content.style.overflowY = '';
+			this.__content.style.overflowY = 'hidden';
 		}
 	},
 
