@@ -110,7 +110,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 			:host .d2l-dropdown-content-bottom {
 				height: 5px;
 				position: relative;
-				z-index: 1;
+				z-index: 2;
 			}
 
 			:host .d2l-dropdown-content-top {
