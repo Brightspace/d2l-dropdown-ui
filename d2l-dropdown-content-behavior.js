@@ -110,7 +110,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 			:host .d2l-dropdown-content-bottom {
 				height: 5px;
 				position: relative;
-				z-index: 1;
+				z-index: 2;
 			}
 
 			:host .d2l-dropdown-content-top {
@@ -530,7 +530,10 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			if (!this.noAutoFocus && this.__applyFocus) {
 				var focusable = D2L.Dom.Focus.getFirstFocusableDescendant(this);
 				if (focusable) {
-					focusable.focus();
+					// bumping this to the next frame is required to prevent IE/Edge from crazily invoking click on the focused element
+					requestAnimationFrame(function() {
+						focusable.focus();
+					});
 				} else {
 					content.setAttribute('tabindex', '-1');
 					content.focus();
@@ -718,7 +721,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			this.__content.style.overflowY = 'auto';
 		} else {
 			/* needed for IE */
-			this.__content.style.overflowY = '';
+			this.__content.style.overflowY = 'hidden';
 		}
 	},
 

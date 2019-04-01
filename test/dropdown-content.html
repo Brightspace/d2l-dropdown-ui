@@ -163,8 +163,10 @@ describe('<d2l-dropdown-content>', function() {
 
 		it('focuses on descendant when opened', function(done) {
 			content.addEventListener('d2l-dropdown-open', function() {
-				expect(document.activeElement).to.equal(content.querySelector('#focusable_inside'));
-				done();
+				requestAnimationFrame(function() {
+					expect(document.activeElement).to.equal(content.querySelector('#focusable_inside'));
+					done();
+				});
 			});
 			content.setAttribute('opened', true);
 		});
@@ -172,8 +174,10 @@ describe('<d2l-dropdown-content>', function() {
 		it('does not focus on descendant when opened and no-auto-focus attribute is specified', function(done) {
 			var activeElement = document.activeElement;
 			content.addEventListener('d2l-dropdown-open', function() {
-				expect(document.activeElement).to.equal(activeElement);
-				done();
+				requestAnimationFrame(function() {
+					expect(document.activeElement).to.equal(activeElement);
+					done();
+				});
 			});
 			content.setAttribute('no-auto-focus', true);
 			content.setAttribute('opened', true);
