@@ -131,6 +131,26 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 				box-shadow: 0 -3px 3px 0 rgba(0, 0, 0, 0.05);
 			}
 
+			@media (prefers-color-scheme: dark) {
+				:host {
+					color: var(--d2l-color-mica);
+				}
+				:host .d2l-dropdown-content-width {
+					background-color: var(--d2l-color-dark-mode-2);
+					border: 1px solid var(--d2l-color-dark-mode-2);
+				}
+				:host .d2l-dropdown-content-pointer > div {
+					background-color: var(--d2l-color-dark-mode-2);
+					border: 1px solid var(--d2l-color-dark-mode-2);
+				}
+				:host .d2l-dropdown-content-top-scroll {
+					box-shadow: 0 3px 3px 0 #000000;
+				}
+				:host .d2l-dropdown-content-bottom-scroll {
+					box-shadow: 0 -3px 3px 0 #000000;
+				}
+			}
+
 			:host-context([dir="rtl"]) {
 				left: auto;
 				right: 0;
