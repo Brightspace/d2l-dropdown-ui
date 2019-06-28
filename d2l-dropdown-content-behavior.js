@@ -131,21 +131,21 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 				box-shadow: 0 -3px 3px 0 rgba(0, 0, 0, 0.05);
 			}
 
-			:host-context(.d2l-dark-mode) {
+			:host-context([d2l-color-scheme="dark"]) {
 				color: var(--d2l-color-mica);
 			}
-			:host-context(.d2l-dark-mode) .d2l-dropdown-content-width {
+			:host-context([d2l-color-scheme="dark"]) .d2l-dropdown-content-width {
 				background-color: var(--d2l-color-dark-mode-2);
 				border: 1px solid var(--d2l-color-dark-mode-2);
 			}
-			:host-context(.d2l-dark-mode) .d2l-dropdown-content-pointer > div {
+			:host-context([d2l-color-scheme="dark"]) .d2l-dropdown-content-pointer > div {
 				background-color: var(--d2l-color-dark-mode-2);
 				border: 1px solid var(--d2l-color-dark-mode-2);
 			}
-			:host-context(.d2l-dark-mode) .d2l-dropdown-content-top-scroll {
+			:host-context([d2l-color-scheme="dark"]) .d2l-dropdown-content-top-scroll {
 				box-shadow: 0 3px 3px 0 #000000;
 			}
-			:host-context(.d2l-dark-mode) .d2l-dropdown-content-bottom-scroll {
+			:host-context([d2l-color-scheme="dark"]) .d2l-dropdown-content-bottom-scroll {
 				box-shadow: 0 -3px 3px 0 #000000;
 			}
 
