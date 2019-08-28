@@ -1,7 +1,7 @@
 import '@polymer/polymer/polymer-legacy.js';
-import 'd2l-colors/d2l-colors.js';
-import 'd2l-polymer-behaviors/d2l-dom.js';
-import 'd2l-polymer-behaviors/d2l-dom-focus.js';
+import '@brightspace-ui/core/components/colors/colors.js';
+import { findComposedAncestor, isComposedAncestor } from '@brightspace-ui/core/helpers/dom.js';
+import { getComposedActiveElement, getFirstFocusableDescendant, getPreviousFocusableAncestor } from '@brightspace-ui/core/helpers/focus.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 const $_documentContainer = document.createElement('template');
@@ -413,7 +413,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 	},
 
 	__getOpener: function() {
-		var opener = D2L.Dom.findComposedAncestor(this, function(elem) {
+		var opener = findComposedAncestor(this, function(elem) {
 			if (elem.isDropdownOpener) {
 				return true;
 			}
@@ -447,10 +447,10 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 				return;
 			}
 
-			var activeElement = D2L.Dom.Focus.getComposedActiveElement();
+			var activeElement = getComposedActiveElement();
 
-			if (D2L.Dom.isComposedAncestor(this, activeElement)
-				|| D2L.Dom.isComposedAncestor(this.__getOpener(), activeElement)) {
+			if (isComposedAncestor(this, activeElement)
+				|| isComposedAncestor(this.__getOpener(), activeElement)) {
 				return;
 			}
 
@@ -463,11 +463,11 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			return;
 		}
 		var content = this.__getContentContainer();
-		if (D2L.Dom.isComposedAncestor(content, dom(e).rootTarget)) {
+		if (isComposedAncestor(content, dom(e).rootTarget)) {
 			return;
 		}
 		var opener = this.__getOpener();
-		if (D2L.Dom.isComposedAncestor(opener.getOpenerElement(), dom(e).rootTarget)) {
+		if (isComposedAncestor(opener.getOpenerElement(), dom(e).rootTarget)) {
 			return;
 		}
 
@@ -480,9 +480,9 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			return;
 		}
 
-		var activeElement = D2L.Dom.Focus.getComposedActiveElement();
+		var activeElement = getComposedActiveElement();
 
-		if (!D2L.Dom.isComposedAncestor(this, activeElement)) {
+		if (!isComposedAncestor(this, activeElement)) {
 			return;
 		}
 
@@ -512,7 +512,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 		this.__previousFocusableAncestor =
 			newValue === true
-				? D2L.Dom.Focus.getPreviousFocusableAncestor(this, false, false)
+				? getPreviousFocusableAncestor(this, false, false)
 				: null;
 
 		this.__isRTL = (getComputedStyle(this).direction === 'rtl');
@@ -528,7 +528,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			this.__position();
 
 			if (!this.noAutoFocus && this.__applyFocus) {
-				var focusable = D2L.Dom.Focus.getFirstFocusableDescendant(this);
+				var focusable = getFirstFocusableDescendant(this);
 				if (focusable) {
 					// bumping this to the next frame is required to prevent IE/Edge from crazily invoking click on the focused element
 					requestAnimationFrame(function() {

@@ -11,8 +11,7 @@ Polymer-based web component for dropdown using a context-menu opener.
 */
 import '@polymer/polymer/polymer-legacy.js';
 
-import 'd2l-button/d2l-button-icon.js';
-import 'd2l-icons/tier1-icons.js';
+import '@brightspace-ui/core/components/button/button-icon.js';
 import 'd2l-polymer-behaviors/d2l-visible-on-ancestor-behavior.js';
 import './d2l-dropdown-opener-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
@@ -25,11 +24,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-context-menu">
 				display: inline-block;
 			}
 		</style>
-		<d2l-button-icon aria-label$="[[text]]" disabled="[[disabled]]" icon="d2l-tier1:chevron-down" text="[[text]]" translucent="[[translucent]]">
+		<d2l-button-icon aria-label$="[[text]]" disabled="[[disabled]]" icon="tier1:chevron-down" text="[[text]]" translucent="[[translucent]]">
 		</d2l-button-icon>
 		<slot></slot>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
