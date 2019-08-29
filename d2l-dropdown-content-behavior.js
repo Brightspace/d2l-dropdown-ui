@@ -1,5 +1,6 @@
 import '@polymer/polymer/polymer-legacy.js';
 import '@brightspace-ui/core/components/colors/colors.js';
+import { clearDismissible, setDismissible} from '@brightspace-ui/core/helpers/dismissible.js';
 import { findComposedAncestor, isComposedAncestor } from '@brightspace-ui/core/helpers/dom.js';
 import { getComposedActiveElement, getFirstFocusableDescendant, getPreviousFocusableAncestor } from '@brightspace-ui/core/helpers/focus.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
@@ -302,6 +303,8 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 	__applyFocus: true,
 
+	__dismissibleId: null,
+
 	ready: function() {
 		this.__onResize = this.__onResize.bind(this);
 		this.__onAutoCloseFocus = this.__onAutoCloseFocus.bind(this);
@@ -321,7 +324,6 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			document.body.addEventListener('focus', this.__onAutoCloseFocus, true);
 			document.body.addEventListener('click', this.__onAutoCloseClick, true);
 
-			this.listen(this, 'keyup', '__onKeyUp');
 			this.listen(this, 'd2l-dropdown-close', '__onClose');
 			this.listen(this, 'd2l-dropdown-position', '__toggleScrollStyles');
 			this.listen(this.__content, 'scroll', '__toggleScrollStyles');
@@ -332,10 +334,11 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 		window.removeEventListener('resize', this.__onResize);
 		document.body.removeEventListener('focus', this.__onAutoCloseFocus, true);
 		document.body.removeEventListener('click', this.__onAutoCloseClick, true);
-		this.unlisten(this, 'keyup', '__onKeyUp');
 		this.unlisten(this, 'd2l-dropdown-close', '__onClose');
 		this.unlisten(this, 'd2l-dropdown-position', '__toggleScrollStyles');
 		this.unlisten(this.__content, 'scroll', '__toggleScrollStyles');
+		clearDismissible(this.__dismissibleId);
+		this.__dismissibleId = null;
 	},
 
 	/**
@@ -491,16 +494,6 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 	},
 
-	__onKeyUp: function(e) {
-		if (!this.opened) {
-			return;
-		}
-		if (e.keyCode === 27) {
-			// escape
-			this.opened = false;
-		}
-	},
-
 	__onResize: function() {
 		if (!this.opened) {
 			return;
@@ -542,6 +535,10 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 
 			this.fire('d2l-dropdown-open');
 
+			this.__dismissibleId = setDismissible(() => {
+				this.close();
+			});
+
 		}.bind(this);
 
 		if (newValue) {
@@ -563,6 +560,11 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 			}
 
 		} else {
+
+			if (this.__dismissibleId) {
+				clearDismissible(this.__dismissibleId);
+				this.__dismissibleId = null;
+			}
 
 			this.fire('d2l-dropdown-close');
 
