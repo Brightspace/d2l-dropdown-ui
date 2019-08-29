@@ -212,6 +212,14 @@ describe('<d2l-dropdown-content>', function() {
 			content.setAttribute('opened', true);
 		});
 
+		it('should close when ESC key is pressed', (done) => {
+			content.addEventListener('d2l-dropdown-open', () => {
+				afterNextRender(content, () => MockInteractions.keyUpOn(document, 27));
+			});
+			content.addEventListener('d2l-dropdown-close', () => done());
+			content.setAttribute('opened', true);
+		});
+
 		it('should not close when element outside receives focus and no-auto-close is set', function(done) {
 			content.addEventListener('d2l-dropdown-open', function() {
 				dropdownFixture.querySelector('#focusable_outside').focus();
