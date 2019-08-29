@@ -30,41 +30,6 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 
 `d2l-dropdown` is a generic opener for dropdown content (`d2l-dropdown-content` or `d2l-dropdown-menu`) enabling alternate opener implementation using existing elements/components. Provide and indicate your own opener element with the class attribute value `d2l-dropdown-opener`.  Wire-up is automatic.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown>
   <button class="d2l-dropdown-opener">Open!</button>
@@ -95,41 +60,6 @@ dropdown.addEventListener('click', function() {
 
 `d2l-dropdown-button` is a `d2l-button` opener for dropdown content (`d2l-dropdown-content` or `d2l-dropdown-menu`).  Provide `text` for the button and content component as needed.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-button.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-button {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-button text="Open!" primary>
   <d2l-dropdown-content>
@@ -144,41 +74,6 @@ dropdown.addEventListener('click', function() {
 
 `d2l-dropdown-button-subtle` is a `d2l-button-subtle` opener for dropdown content (`d2l-dropdown-content` or `d2l-dropdown-menu`).  Provide `text` for the button and content component as needed.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-button-subtle.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-button-subtle {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-button-subtle text="Open!">
   <d2l-dropdown-content>
@@ -191,41 +86,6 @@ dropdown.addEventListener('click', function() {
 
 `d2l-dropdown-context-menu` is a simple/minimal opener for dropdown content (`d2l-dropdown-content` or `d2l-dropdown-menu`).  Provide `text` for accessibility and content component as needed.  Optionally, specify the `translucent` attribute for busy/rich backgrounds.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-context-menu.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-context-menu {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-context-menu text="Open!">
   <d2l-dropdown-content>
@@ -238,41 +98,6 @@ dropdown.addEventListener('click', function() {
 
 `d2l-dropdown-more` is a simple/minimal opener for dropdown content (`d2l-dropdown-content` or `d2l-dropdown-menu`).  Provide `text` for accessibility and content component as needed.  Optionally, specify the `translucent` attribute for busy/rich backgrounds.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-more.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-more {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-more text="Open!">
   <d2l-dropdown-content>
@@ -285,58 +110,6 @@ dropdown.addEventListener('click', function() {
 
 For busy/rich backgrounds, the `d2l-dropdown-more` and `d2l-dropdown-context-menu` openers support the [VisibleOnAncestorBehavior](https://github.com/Brightspace/d2l-polymer-behaviors-ui) that can be enabled by specifying the `visible-on-ancestor` attribute.  See [VisibleOnAncestorBehavior](https://github.com/Brightspace/d2l-polymer-behaviors-ui) for more details on configuring that behavior.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-more.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-more {
-        margin-left: 15px;
-      }
-      .translucent-container {
-        position: relative;
-        height: 150px;
-      }
-      .translucent-container > img {
-        border-radius: 6px;
-        height: 100%;
-        max-width: 400px;
-        position: absolute;
-        width: 100%;
-      }
-      .translucent-container > d2l-dropdown-context-menu,
-      .translucent-container > d2l-dropdown-more {
-        padding-right: 0;
-        margin-top: 12px;
-        margin-left: 12px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '180px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <div class="translucent-container d2l-visible-on-ancestor-target">
   <img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg"/>
@@ -355,41 +128,6 @@ For busy/rich backgrounds, the `d2l-dropdown-more` and `d2l-dropdown-context-men
 
 `d2l-dropdown-content` is a generic container for dropdown content.  It provides behavior such as sizing,  positioning, and managing focus gain/loss.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-dropdown-button.html">
-    <link rel="import" href="d2l-dropdown-content.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-button {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '210px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-button text="Open!" primary>
   <d2l-dropdown-content min-width="150" max-width="400">
@@ -422,42 +160,6 @@ content.addEventListener('d2l-dropdown-close', () => { ... });
 
 `d2l-dropdown-menu` is a container for a [d2l-menu](https://github.com/Brightspace/d2l-menu-ui) component.  It provides behavior in addition to the basic behavior of `d2l-dropdown-content` such as closing the menu when menu items are selected, resetting to the root of nested menus when reopening, etc.
 
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="../d2l-menu/d2l-menu.html">
-    <link rel="import" href="d2l-dropdown-button.html">
-    <link rel="import" href="d2l-dropdown-menu.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        color: var(--d2l-color-ferrite);
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-        letter-spacing: 0.01rem;
-        font-size: 0.95rem;
-        font-weight: 400;
-        line-height: 1.4rem;
-      }
-      d2l-dropdown-button {
-        margin-left: 15px;
-      }
-    </style>
-    <script>
-      document.body.addEventListener('d2l-dropdown-open', function() { document.body.style.height = '320px'; });
-    </script>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <d2l-dropdown-button text="Open!" primary>
   <d2l-dropdown-menu id="dropdown">

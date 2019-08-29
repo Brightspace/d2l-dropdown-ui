@@ -11,9 +11,8 @@ Polymer-based web component for dropdown using a subtle button opener.
 */
 import '@polymer/polymer/polymer-legacy.js';
 
-import 'd2l-button/d2l-button-subtle.js';
-import 'd2l-icons/d2l-icon.js';
-import 'd2l-icons/tier1-icons.js';
+import '@brightspace-ui/core/components/button/button-subtle.js';
+import '@brightspace-ui/core/components/icons/icon.js';
 import './d2l-dropdown-opener-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');
@@ -22,10 +21,10 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-button-subtle">
 	<template strip-whitespace="">
 		<style include="d2l-dropdown-opener-styles">
 		</style>
-		<d2l-button-subtle text="[[text]]" icon="d2l-tier1:chevron-down" icon-right=""></d2l-button-subtle>
+		<d2l-button-subtle text="[[text]]" icon="tier1:chevron-down" icon-right=""></d2l-button-subtle>
 		<slot></slot>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);

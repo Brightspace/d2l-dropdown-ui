@@ -7,7 +7,6 @@
 		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
 		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
 		<script type="module" src="../d2l-dropdown-context-menu.js"></script>
 		<script type="module" src="../d2l-dropdown-content.js"></script>
 		<link rel="stylesheet" type="text/css" href="demo-styles.css">
@@ -28,13 +27,6 @@ $_documentContainer.innerHTML = `<custom-style>
 
 document.body.appendChild($_documentContainer.content);
 </script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-
 document.body.appendChild($_documentContainer.content);
 </script>
 	</head>
@@ -96,7 +88,7 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 							</d2l-dropdown-content>
 						</d2l-dropdown-context-menu>
 					</div>
-					
+
 				</template>
 			</demo-snippet>
 
@@ -107,7 +99,7 @@ document.body.appendChild($_documentContainer.content);
 		<script type="module">
 import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
 import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
+import '@brightspace-ui/core/components/typography/typography.js';
 import '../d2l-dropdown-context-menu.js';
 import '../d2l-dropdown-content.js';
 document.body.addEventListener('d2l-dropdown-open', function(e) {

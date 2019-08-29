@@ -11,9 +11,8 @@ Polymer-based web component for dropdown using a button opener.
 */
 import '@polymer/polymer/polymer-legacy.js';
 
-import 'd2l-button/d2l-button.js';
-import 'd2l-icons/d2l-icon.js';
-import 'd2l-icons/tier1-icons.js';
+import '@brightspace-ui/core/components/button/button.js';
+import '@brightspace-ui/core/components/icons/icon.js';
 import './d2l-dropdown-opener-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');
@@ -41,11 +40,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-button">
 			}
 		</style>
 		<d2l-button primary="[[primary]]">
-			<span class="d2l-dropdown-button-text">[[text]]</span><d2l-icon icon="d2l-tier1:chevron-down"></d2l-icon>
+			<span class="d2l-dropdown-button-text">[[text]]</span><d2l-icon icon="tier1:chevron-down"></d2l-icon>
 		</d2l-button>
 		<slot></slot>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
