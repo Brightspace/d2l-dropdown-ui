@@ -223,8 +223,8 @@ npm test
 
 [bower-url]: http://bower.io/search/?q=d2l-dropdown
 [bower-image]: https://badge.fury.io/bo/d2l-dropdown.svg
-[ci-url]: https://travis-ci.org/BrightspaceUI/dropdown
-[ci-image]: https://travis-ci.org/BrightspaceUI/dropdown.svg?branch=master
+[ci-url]: https://travis-ci.com/BrightspaceUI/dropdown
+[ci-image]: https://travis-ci.com/BrightspaceUI/dropdown.svg?branch=master
 
 ## Versioning & Releasing
 
