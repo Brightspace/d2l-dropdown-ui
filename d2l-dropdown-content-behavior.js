@@ -85,6 +85,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 				border-radius: 0.3rem;
 				box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
 				box-sizing: border-box;
+				line-height: 0;
 				min-width: 70px;
 				max-width: 370px;
 				position: absolute;
