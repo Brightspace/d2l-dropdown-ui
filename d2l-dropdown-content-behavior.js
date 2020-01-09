@@ -101,6 +101,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-content-styles">
 				max-width: 100%;
 				outline: none;
 				padding: 1rem;
+				vertical-align: top;
 			}
 
 			:host([no-padding]) .d2l-dropdown-content-container {
