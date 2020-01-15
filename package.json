@@ -21,7 +21,6 @@
     "@polymer/iron-test-helpers": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "babel-eslint": "^10.0.1",
-    "d2l-menu": "BrightspaceUI/menu#semver:^2",
     "d2l-tabs": "BrightspaceUI/tabs#semver:^1",
     "eslint": "^4.15.0",
     "eslint-config-brightspace": "^0.4.0",

@@ -11,7 +11,6 @@ Polymer-based web component for dropdown menu content.
 */
 import '@polymer/polymer/polymer-legacy.js';
 
-import 'd2l-menu/d2l-menu.js';
 import './d2l-dropdown-content-behavior.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
@@ -41,7 +40,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-dropdown-menu">
 			<div></div>
 		</div>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);

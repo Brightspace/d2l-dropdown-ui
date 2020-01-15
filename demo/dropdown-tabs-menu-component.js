@@ -1,6 +1,7 @@
 import '@polymer/polymer/polymer-legacy.js';
 import 'd2l-tabs/d2l-tabs.js';
-import 'd2l-menu/d2l-menu.js';
+import '@brightspace-ui/core/components/menu/menu.js';
+import '@brightspace-ui/core/components/menu/menu-item.js';
 import '../d2l-dropdown.js';
 import '../d2l-dropdown-tabs.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
