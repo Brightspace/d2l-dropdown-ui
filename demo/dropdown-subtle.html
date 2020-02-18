@@ -1,79 +1,37 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-dropdown-button-subtle demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../d2l-dropdown-button-subtle.js"></script>
-		<script type="module" src="../d2l-dropdown-content.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
+	<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 	<script type="module">
-const $_documentContainer = document.createElement('template');
+		import '@brightspace-ui/core/components/demo/demo-page.js';
+		import '@brightspace-ui/core/components/demo/demo-snippet.js';
+		import '../d2l-dropdown-button-subtle.js';
+		import '../d2l-dropdown-content.js';
+	</script>
+</head>
 
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
+<body unresolved>
+	<d2l-demo-page page-title="d2l-dropdown-button-subtle demo (imported from core)">
+		<h3>Dropdown Subtle Button Opener</h3>
+		<d2l-demo-snippet>
+			<template>
+				<d2l-dropdown-button-subtle text="Open!">
+					<d2l-dropdown-content max-width="400">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+							commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+							nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+							anim id est laborum.</p>
+						<a href="http://www.desire2learn.com">D2L</a>
+					</d2l-dropdown-content>
+				</d2l-dropdown-button-subtle>
+			</template>
+		</d2l-demo-snippet>
+	</d2l-demo-page>
+</body>
 
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-			</style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
-
-			<h3>Dropdown Subtle Button Opener</h3>
-			<demo-snippet>
-				<template>
-					<d2l-dropdown-button-subtle text="Open!">
-						<d2l-dropdown-content max-width="400">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<a href="http://www.desire2learn.com">D2L</a>
-						</d2l-dropdown-content>
-
-				</d2l-dropdown-button-subtle></template>
-			</demo-snippet>
-
-		</div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import '@brightspace-ui/core/components/typography/typography.js';
-import '../d2l-dropdown-button-subtle.js';
-import '../d2l-dropdown-content.js';
-document.body.addEventListener('d2l-dropdown-open', function(e) {
-	// eslint-disable-next-line no-console
-	console.log('d2l-dropdown-open', e);
-});
-document.body.addEventListener('d2l-dropdown-close', function(e) {
-	// eslint-disable-next-line no-console
-	console.log('d2l-dropdown-close', e);
-});
-</script>
-	</body>
 </html>

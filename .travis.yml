@@ -1,17 +1,7 @@
 language: node_js
 node_js: node
-addons:
-  chrome: stable
 script:
 - npm run lint
-- |
-  if [ $TRAVIS_PULL_REQUEST != false ] && [ $TRAVIS_SECURE_ENV_VARS == true ]; then
-    echo "Pull request with secure environment variables, running Sauce tests...";
-    npm run test:polymer:sauce || travis_terminate 1;
-  else
-    echo "Not a pull request and/or no secure environment variables, running headless tests...";
-    npm run test:polymer:local || travis_terminate 1;
-  fi
 after_success:
 - frauci-update-version -d=skip && export TRAVIS_TAG=$(frauci-get-version)
 deploy:
@@ -23,6 +13,4 @@ env:
   global:
   - OWNER_NAME=BrightspaceUI
   - REPO_NAME=dropdown
-  - SAUCE_USERNAME: Desire2Learn
-  - secure: rjj1wnDSPijveGM36VrDHo8NBC1V1PdjjYkg4eAfD1UCsAqtcZQrzlFncKpd6AozHT2La6XigHrINT53CEAFJ1eD9d/nFOqusDSxhsAq92YmZ3a4h5+8Bc/iVk7cSfvNK07ALv9CvYocgzIBceisB4mrHm1h22AXeg8NrJGZuPFXesOnVmbTg02yy+FmD1go0cvxQNLcuR7lUYURDfjg9u/hzooNTxfIesfi8Tdj3HWFZSDPFmIH3QYAZcMJp60zAi3p33p4SbcrXYy3dxjqLLHnShd33Oi8rqjgMAKHCVXdSqqmfUmBBdfn0TjUDVluNYb/xSjJ2kBuiOvLkeXjmySk5vtjfloAJOKrGC8F7Gg+TThkOf4Ry7jfQZRDGCWRSYaq3vsquXPUfXrS5AojL0s+1AlaESFPAEUPg5kcWSM45J8io9nS9x35y5qZgARm1Lny3YBONTQbPk9NqCHxbKZqCY7BjpMNtBDcXWSeeaCieX7qsRuGZdoBON/zD4fG7D9kowdEYogGu1BGimTkR+g3DdQcb+l3gYH2JUnXogxbqvCeU3lKKABT59rTamKl9B9HO/C/tgwvkW+fhxC+AUF9b4sQ2RZcWoeel8V9Fe5hEM9f9Rb2xkGN8krA07u9daJWNeZKXzwrV8iiQeZD2o5grB/5ZEnM/QXT8CDHvFA=
   - secure: vmqM13ByJGZquFtfVpd3iGjVaKLYzBljWuOz8Eo5pYb1JmZV4lWC682rXt/bnTsvBwJyi5Gfg4+om2auKv8Q6OLVFakjCm+5ySjY8Fe7F66pQZv0i07UxSdmEBYRHzanpkApUFDqUuisy91DSJ5lInW0u/XuQZaVPeeyOpgdOag6lEocxAU1TbrFKEwe4dgywvSaRvwWPosXcXOWe5KjSkK44wK09bDhGb2b/vnjmSCbLKGF+odSy4RubRIOhIBvG7WXfLE58u7fuM2CbNseepWQjo6wIEB409d9OGYklYkCi4S6Tloo+eqsuj6r1qruhAQHM+et0vp959OIEPU+8QUAYhcXeRPROpFpY9ATUuwrdeUc4CzwXRNf1ENqNOJj5j53vHOZhaqx7M5XnhKtPRBgzi990r31/qAo/AL84FCiVRdPhBXv/H/msFJUbkaqYvmaA5+nB+ZRNU5ceIXplh6jm1pMajTsVnxdspxnanAPv26+REWXBPJoKz/LDsBaL4/iSeY55CZFN5EojDmxBzpuSl4OWuB5/6cWxgQoPMHWLdrZwr167L1KEdbhmH9PrJNaqd9b4Yegq4hWX21Kjcy1nMcG4wShCtYijV3wXZ1vh3jvA8/dm/fSINfMC3T/CZZVJSPvcLM6711Dec+JeWwIsbCTXzJzDCwuyqnbcTQ=
