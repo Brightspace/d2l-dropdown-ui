@@ -370,6 +370,7 @@ D2L.PolymerBehaviors.DropdownContentBehavior = {
 		}
 		var domIf = this.$$('dom-if') || this.$$('template');
 		domIf.render();
+		return Promise.resolve();
 	},
 
 	/**

@@ -117,11 +117,15 @@ D2L.PolymerBehaviors.DropdownOpenerBehavior = {
 			return;
 		}
 
-		var content = this.queryEffectiveChildren('[d2l-dropdown-content]');
+		var content = this.__getContentElement();
 		if (!content) {
 			return;
 		}
 		content.toggleOpen(applyFocus);
+	},
+
+	__getContentElement: function() {
+		return this.queryEffectiveChildren('[d2l-dropdown-content]');
 	},
 
 	__onKeyPress: function(e) {
